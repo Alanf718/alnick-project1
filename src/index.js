@@ -2,7 +2,14 @@ var enemies = require('./enemies.js');
 
 var x = 500;
 var y = 900;
+
+var heroWidth = 50;
+var minWidth = 10;
+var maxWidth = 75;
+
 var numPixels = 10;
+
+var vel = 5;
 
 function setup() {
     createCanvas(1000, 1000);
@@ -16,7 +23,7 @@ function userInputs(){
             x = 999;
         }
         else {
-            x-=5;
+            x-=vel;
         }
     }
 
@@ -26,7 +33,7 @@ function userInputs(){
             x = 1;
         }
         else {
-            x+=5;
+            x+=vel;
         }
     }
 
@@ -35,7 +42,7 @@ function userInputs(){
         if (y<=0) {
         }
         else {
-            y-=5;
+            y-=vel;
         }
     }
 
@@ -44,7 +51,7 @@ function userInputs(){
         if (y>=1000) {
         }
         else {
-            y+=5;
+            y+=vel;
         }
     }
 };
@@ -60,7 +67,7 @@ function draw() {
 
     background(211, 211, 211);
     fill(255, 0, 0);
-    ellipse(x, y, 50, 50);
+    ellipse(x, y, heroWidth, 50);
 
     // Enemy logic below
     var nme = enemies.getEnemies();
