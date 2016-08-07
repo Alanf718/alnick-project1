@@ -1,0 +1,28 @@
+{
+  "name": "alnick-project1",
+  "version": "1.0.0",
+  "description": "A small for fun project for me and nick",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack-dev-server --progress --colors --inline",
+    "start": "node node_modules/opn-cli/cli http://localhost:8080/"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alanf718/alnick-project1.git"
+  },
+  "author": "Nick & Alan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alanf718/alnick-project1/issues"
+  },
+  "homepage": "https://github.com/Alanf718/alnick-project1#readme",
+  "devDependencies": {
+    "opn-cli": "3.1.0",
+    "webpack": "1.13.1",
+    "webpack-dev-server": "1.14.1"
+  }
+}
