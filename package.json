@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --watch",
     "dev": "webpack-dev-server --progress --colors --inline",
     "start": "node node_modules/opn-cli/cli http://localhost:8080/"
 
