@@ -54,6 +54,21 @@ function userInputs(){
             y+=vel;
         }
     }
+
+    if (keyIsDown(LEFT_ARROW)){
+        if(heroWidth >= minWidth + .4){
+            heroWidth -= .4;
+            vel = heroWidth/10;
+        } else {
+        }
+    }
+    if (keyIsDown(RIGHT_ARROW)){
+        if(heroWidth <= maxWidth - .4){
+            heroWidth += .4;
+            vel = heroWidth/10;
+        } else {
+        }
+    }
 };
 
 function update() {
