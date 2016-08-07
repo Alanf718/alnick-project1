@@ -17,17 +17,43 @@ function setup() {
 }
 
 function userInputs(){
-    if (keyIsDown(65))
-        x-=vel;
+    // LEFT @todo need to put these numbers in global scope
+    if (keyIsDown(65)) {
+        if (x<=0) {
+            x = 999;
+        }
+        else {
+            x-=vel;
+        }
+    }
 
-    if (keyIsDown(68))
-        x+=vel;
+    // RIGHT
+    if (keyIsDown(68)) {
+        if (x>=1000) {
+            x = 1;
+        }
+        else {
+            x+=vel;
+        }
+    }
 
-    if (keyIsDown(87))
-        y-=vel;
+    // UP
+    if (keyIsDown(87)) {
+        if (y<=0) {
+        }
+        else {
+            y-=vel;
+        }
+    }
 
-    if (keyIsDown(83))
-        y+=vel;
+    // DOWN
+    if (keyIsDown(83)) {
+        if (y>=1000) {
+        }
+        else {
+            y+=vel;
+        }
+    }
 
     if (keyIsDown(LEFT_ARROW)){
         if(heroWidth >= minWidth + .4){
@@ -48,6 +74,7 @@ function userInputs(){
 function update() {
     enemies.updateEnemies();
 };
+
 
 function draw() {
 
