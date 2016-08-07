@@ -1,7 +1,7 @@
 var enemies = require('./enemies.js');
 
-var xpos = 500;
-var ypos = 900;
+var x = 500;
+var y = 900;
 var numPixels = 10;
 
 function setup() {
@@ -9,7 +9,7 @@ function setup() {
     enemies.init();
 }
 
-function draw() {
+function userInputs(){
     if (keyIsDown(65))
         x-=5;
 
@@ -21,14 +21,25 @@ function draw() {
 
     if (keyIsDown(83))
         y+=5;
+};
+
+function update() {
+    enemies.updateEnemies();
+};
+
+
+function draw() {
+
+    userInputs();
 
     background(211, 211, 211);
     fill(255, 0, 0);
+    ellipse(x, y, 50, 50);
 
     // Enemy logic below
     var nme = enemies.getEnemies();
 
-    enemies.updateEnemies();
+    update();
 
     for(var i=0; i < nme.length; i++)
     {
@@ -40,9 +51,7 @@ function draw() {
         }
         ellipse(e.x, e.y, 35, 35);
     }
-    ellipse(x, y, 50, 50);
 }
 
 global.setup = setup;
 global.draw = draw;
-global.keyPressed = keyPressed;
