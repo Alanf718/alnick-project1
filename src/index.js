@@ -1,6 +1,12 @@
-/**
- * Created by Alan on 8/7/2016.
- */
+function setup() {
+    createCanvas(1000, 1000);
+}
 
-var x = "Hey nick remember to remove me";
-alert(x);
+function draw() {
+    if (keyIsPressed === true) {
+        fill(0);
+    } else {
+        fill(255);
+    }
+    rect(width/2, 900, 50, 50);
+}
