@@ -10,17 +10,43 @@ function setup() {
 }
 
 function userInputs(){
-    if (keyIsDown(65))
-        x-=5;
+    // LEFT @todo need to put these numbers in global scope
+    if (keyIsDown(65)) {
+        if (x<=0) {
+            x = 999;
+        }
+        else {
+            x-=5;
+        }
+    }
 
-    if (keyIsDown(68))
-        x+=5;
+    // RIGHT
+    if (keyIsDown(68)) {
+        if (x>=1000) {
+            x = 1;
+        }
+        else {
+            x+=5;
+        }
+    }
 
-    if (keyIsDown(87))
-        y-=5;
+    // UP
+    if (keyIsDown(87)) {
+        if (y<=0) {
+        }
+        else {
+            y-=5;
+        }
+    }
 
-    if (keyIsDown(83))
-        y+=5;
+    // DOWN
+    if (keyIsDown(83)) {
+        if (y>=1000) {
+        }
+        else {
+            y+=5;
+        }
+    }
 };
 
 function update() {
