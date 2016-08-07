@@ -10,3 +10,7 @@ function draw() {
     }
     rect(width/2, 900, 50, 50);
 }
+
+//
+// global.setup = setup;
+// global.draw = draw;
