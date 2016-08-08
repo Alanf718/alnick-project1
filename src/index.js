@@ -11,9 +11,15 @@ var numPixels = 10;
 
 var vel = 5;
 
+var myLife = 10;
+var startDate;
+var refDate;
+
+
 function setup() {
     createCanvas(1000, 1000);
     enemies.init();
+    startDate = new Date();
 }
 
 function userInputs(){
@@ -94,8 +100,12 @@ function score() {
     fill(0);
     noStroke();
     textSize(50);
-    var myScore = 0;
-    var myLife = 0;
+
+    if(myLife > 0) {
+        refDate = new Date();
+    }
+
+    var myScore = Math.floor( (refDate - startDate)/50 );
     text('Score: ' + myScore, 10, 40);
     text('Life: ' + myLife, 800, 40);
 };
@@ -104,9 +114,10 @@ function score() {
 function onCollision(uid, black)
 {
     if(black){
+        myLife -= 2;
+    } else {
+        myLife -= 1;
     }
-
-    console.log(uid, black, " HIT ME");
 }
 
 function draw() {
@@ -114,26 +125,30 @@ function draw() {
 
     background(211, 211, 211);
     fill(255, 0, 0);
-    rect(x, y, heroWidth, 50);
 
-    // Enemy logic below
-    var nme = enemies.getEnemies();
+    if( myLife > 0 ) {
+        rect(x, y, heroWidth, 50);
+        // Enemy logic below
+        var nme = enemies.getEnemies();
 
-    update();
+        update();
 
-    for(var i=0; i < nme.length; i++)
-    {
-        var e = nme[i];
+        for(var i=0; i < nme.length; i++)
+        {
+            var e = nme[i];
 
-        if(!e.hitUser) {
-            if(e.black) {
-                fill(255, 0, 0);
-            } else {
-                fill(0, 0, 255);
+            if(!e.hitUser) {
+                if(e.black) {
+                    fill(255, 0, 0);
+                } else {
+                    fill(0, 0, 255);
+                }
+                rect(e.x, e.y, 35, 35);
             }
-            rect(e.x, e.y, 35, 35);
         }
     }
+
+
     score();
 }
 
