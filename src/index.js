@@ -90,6 +90,16 @@ function update() {
     }
 };
 
+function score() {
+    fill(0);
+    noStroke();
+    textSize(50);
+    var myScore = 0;
+    var myLife = 0;
+    text('Score: ' + myScore, 10, 40);
+    text('Life: ' + myLife, 800, 40);
+};
+
 
 function onCollision(uid, black)
 {
@@ -100,7 +110,6 @@ function onCollision(uid, black)
 }
 
 function draw() {
-
     userInputs();
 
     background(211, 211, 211);
@@ -125,6 +134,7 @@ function draw() {
             rect(e.x, e.y, 35, 35);
         }
     }
+    score();
 }
 
 global.setup = setup;
