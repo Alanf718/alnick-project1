@@ -73,6 +73,21 @@ function userInputs(){
 
 function update() {
     enemies.updateEnemies();
+
+    var nme = enemies.getEnemies();
+
+    for(var i=0; i < nme.length; i++)
+    {
+        var e = nme[i];
+
+        if(!e.hitUser){
+            if(collideRectRect( x, y, heroWidth, 50,
+                    e.x, e.y, 35 ,35)){
+                e.hitUser = true;
+                onCollision(e.id, e.black);
+            }
+        }
+    }
 };
 
 function score() {
@@ -86,12 +101,20 @@ function score() {
 };
 
 
+function onCollision(uid, black)
+{
+    if(black){
+    }
+
+    console.log(uid, black, " HIT ME");
+}
+
 function draw() {
     userInputs();
 
     background(211, 211, 211);
     fill(255, 0, 0);
-    ellipse(x, y, heroWidth, 50);
+    rect(x, y, heroWidth, 50);
 
     // Enemy logic below
     var nme = enemies.getEnemies();
@@ -101,12 +124,15 @@ function draw() {
     for(var i=0; i < nme.length; i++)
     {
         var e = nme[i];
-        if(e.black) {
-            fill(255, 0, 0);
-        } else {
-            fill(0, 0, 255);
+
+        if(!e.hitUser) {
+            if(e.black) {
+                fill(255, 0, 0);
+            } else {
+                fill(0, 0, 255);
+            }
+            rect(e.x, e.y, 35, 35);
         }
-        ellipse(e.x, e.y, 35, 35);
     }
     score();
 }
