@@ -1,2 +1,2 @@
-# alnick-project1
-A small for fun project for me and nick
+# p5.js-space-invaders-type-game
+a small 1 day project using p5.js
