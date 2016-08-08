@@ -5,6 +5,7 @@ var util = require('./util.js');
 
 var spawnRate = 600;
 var enemies = [];
+var UID = 0;
 
 var drawEnemy = function(){
     // ellipse(xpos, ypos, 25, 25);
@@ -14,7 +15,8 @@ var createEnemy = function(){
     var black = util.getRandomBool();
     var x = util.getRandomInt(0, 1000);
 
-    enemies.push({black: black, x: x, y: 0});
+    enemies.push({black: black, x: x, y: 0, id: UID, hitUser: false}); // hit user flag is to track if we did damage or not
+    UID++;
 };
 
 
